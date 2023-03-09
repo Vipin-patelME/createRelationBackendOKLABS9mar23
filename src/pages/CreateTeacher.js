@@ -31,7 +31,7 @@ export default function CreateTeacher() {
             setTeacherName("")
         }
         else{
-            alert("Invalid Method")
+            alert("Invalid Method or End point")
         }
     }
 

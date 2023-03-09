@@ -44,7 +44,7 @@ export default function Home() {
             const newTeacherData = data.data.map((eachCv) =>{
                 return ({name: eachCv.attributes.name, id:eachCv.id})
             })
-            console.log(data.data)
+            //console.log(data.data)
             setTableData([...newTeacherData])
         })        
 
@@ -52,7 +52,7 @@ export default function Home() {
 
 
     const newDeletedTeacher = (id)=>{
-        console.log(id)
+        //console.log(id)
         const newTeacherList = tableData.filter(newData=> newData.id !== id)
         setTableData([...newTeacherList])  
     }
