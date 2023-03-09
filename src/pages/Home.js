@@ -64,13 +64,16 @@ export default function Home() {
                     tableData.length < 1 ? <h1>No data to show</h1>
                     :
                     (
-                        <ul className='list-style '>
-                            {
-                                tableData.map((cv, idx)=>(
-                                    <ListItems items={cv} key={idx} deleteTeacher={newDeletedTeacher} />
-                                )
-                            )}
-                        </ul>
+                        <>
+                            <h1 className="m-5">Teachers List</h1>
+                            <ul className='list-style '>
+                                {
+                                    tableData.map((cv, idx)=>(
+                                        <ListItems items={cv} key={idx} deleteTeacher={newDeletedTeacher} />
+                                    )
+                                )}
+                            </ul>
+                        </>
                     ) 
                 }
             </>
