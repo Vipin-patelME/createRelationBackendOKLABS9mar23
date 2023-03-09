@@ -46,7 +46,6 @@ export default function CreateStudent() {
         }
 
         const response = await fetch(url, options)
-        const data = await response.json()
         //console.log(data)
         if (response.ok === true){
             alert(`${student} is Added successfuly to Students list`)
