@@ -7,8 +7,9 @@ header{
     justify-content: center;
 }
 main{
-    height: 500px;
+    height: 100vh;
     background-color: burlywood;
+    width: 100%;
 }
 aside{
     background-color: rgb(203, 153, 243);
@@ -27,3 +28,24 @@ footer{
     font-size: 35px;
     color: beige;
 }
+.main-cont{
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-color: rgb(130, 130, 214);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .list-style{
+    list-style-type: none;
+    width:100%;
+    margin-top: 100px;
+    overflow-y: hidden;
+  }
+  .list-items{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+  }

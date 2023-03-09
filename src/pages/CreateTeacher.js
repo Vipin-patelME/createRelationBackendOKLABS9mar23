@@ -28,6 +28,7 @@ export default function CreateTeacher() {
         const response = await fetch(`http://localhost:1337/api/teachers`, options)
         if (response.ok === true){
             alert("Teacher created successfully")
+            setTeacherName("")
         }
         else{
             alert("Invalid Method")
@@ -38,7 +39,7 @@ export default function CreateTeacher() {
         <Form onSubmit={onSubmitName} className='pt-5'>
             <Form.Group className="mb-3" controlId="teacherName">
                 <Form.Label>Teacher Name</Form.Label>
-                <Input onChange={onTeacherInput} type="text" placeholder="Enter Teacher Name" />
+                <Input onChange={onTeacherInput} value={teacherName} type="text" placeholder="Enter Teacher Name" />
             </Form.Group>
             <Button  variant="primary" type="submit">
                 Submit
