@@ -8,17 +8,21 @@ const ListItems = props =>{
 
 
     const onDeleteTeacher = async ()=>{
-        deleteTeacher(items.id)
-        const deleteAPIUrl = `http://localhost:1337/api/teachers/${items.id}`
-        const options = {
-            method:"DELETE"
-        }
-        const response = await fetch(deleteAPIUrl, options)
-        //console.log(response)
-        if (response.ok === true){
-            alert("Teacher deleted successfully") 
-    
-        }
+        const permission = window.confirm(`Do you really want to delete ${name}`)
+
+        if (permission === true){
+            deleteTeacher(items.id)
+            const deleteAPIUrl = `http://localhost:1337/api/teachers/${items.id}`
+            const options = {
+                method:"DELETE"
+            }
+            const response = await fetch(deleteAPIUrl, options)
+            //console.log(response)
+            if (response.ok === true){
+                alert("Teacher deleted successfully") 
+        
+            }
+        } 
     }
     return(
         <li className='list-items w-100 mt-3'>
