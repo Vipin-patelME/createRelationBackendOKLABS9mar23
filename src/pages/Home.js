@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
+import { Rings } from 'react-loader-spinner'
 
 
 const ListItems = props =>{
     const {items, deleteTeacher} = props
     const {name} = items
+
 
     const onDeleteTeacher = async ()=>{
         deleteTeacher(items.id)
@@ -35,6 +37,7 @@ const ListItems = props =>{
 export default function Home() {
 
     const [tableData, setTableData] = useState([])
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(()=>{
         const url = "http://localhost:1337/api/teachers"
@@ -45,6 +48,7 @@ export default function Home() {
                 return ({name: eachCv.attributes.name, id:eachCv.id})
             })
             //console.log(data.data)
+            setIsLoading(false)
             setTableData([...newTeacherData])
         })        
 
@@ -61,20 +65,22 @@ export default function Home() {
   return (
             <>
                 {
-                    tableData.length < 1 ? <h1>No data to show</h1>
+                    isLoading ? 
+                    <div className="d-flex justify-content-center items-center mt-5 pt-5 ">
+                        <Rings color="#00BFFF" height={280} width={280} />
+                    </div>
                     :
-                    (
-                        <>
-                            <h1 className="m-5">Teachers List</h1>
-                            <ul className='list-style '>
-                                {
-                                    tableData.map((cv, idx)=>(
-                                        <ListItems items={cv} key={idx} deleteTeacher={newDeletedTeacher} />
-                                    )
-                                )}
-                            </ul>
-                        </>
-                    ) 
+                    <>
+                        <h1 className="m-5">Teachers List</h1>
+                        <ul className='list-style '>
+                            {
+                                tableData.map((cv, idx)=>(
+                                    <ListItems items={cv} key={idx} deleteTeacher={newDeletedTeacher} />
+                                )
+                            )}
+                        </ul>
+                    </>
+                     
                 }
             </>
         )
